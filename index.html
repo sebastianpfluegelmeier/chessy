@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Terrain Chess — prototype</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="./favicon.svg" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <main class="app">
@@ -18,38 +19,42 @@
 
     <aside class="panel">
       <div class="card">
+        <h2>Mode</h2>
+        <div class="segmented" id="modeSeg">
+          <button class="seg seg--on" data-mode="1p" type="button">1 Player</button>
+          <button class="seg" data-mode="2p" type="button">2 Players</button>
+        </div>
+        <div id="oneOpts">
+          <label class="row">
+            <span>You play</span>
+            <select id="humanColor">
+              <option value="w" selected>White</option>
+              <option value="b">Black</option>
+            </select>
+          </label>
+          <label class="row">
+            <span>AI speed</span>
+            <select id="speed">
+              <option value="150">Fast</option>
+              <option value="450" selected>Normal</option>
+              <option value="900">Slow</option>
+            </select>
+          </label>
+        </div>
+        <p class="note">1 Player = you vs the AI. 2 Players = hotseat, both play on this device.</p>
+      </div>
+
+      <div class="card">
         <h2>Pieces left</h2>
         <div class="counts">
-          <div class="count count--white"><span class="disc disc--white"></span><span id="whiteCount">0</span> White</div>
-          <div class="count count--black"><span class="disc disc--black"></span><span id="blackCount">0</span> Black</div>
+          <div class="count"><span class="disc disc--white"></span><span id="whiteCount">0</span> White</div>
+          <div class="count"><span class="disc disc--black"></span><span id="blackCount">0</span> Black</div>
         </div>
         <p class="note">Capture <em>all</em> enemy pieces to win. There is no king, no check.</p>
       </div>
 
       <div class="card">
-        <h2>Setup</h2>
-        <label class="row">
-          <span>White</span>
-          <select id="whiteCtrl">
-            <option value="human" selected>Human</option>
-            <option value="ai">AI</option>
-          </select>
-        </label>
-        <label class="row">
-          <span>Black</span>
-          <select id="blackCtrl">
-            <option value="human">Human</option>
-            <option value="ai" selected>AI</option>
-          </select>
-        </label>
-        <label class="row">
-          <span>AI speed</span>
-          <select id="speed">
-            <option value="150">Fast</option>
-            <option value="450" selected>Normal</option>
-            <option value="900">Slow</option>
-          </select>
-        </label>
+        <h2>Board</h2>
         <label class="row row--check">
           <input type="checkbox" id="symmetric" checked />
           <span>Symmetric terrain</span>
@@ -58,7 +63,7 @@
           <span>Seed</span>
           <input type="text" id="seed" inputmode="numeric" placeholder="random" />
         </label>
-        <button id="newGame" class="btn">New board</button>
+        <button id="newGame" class="btn" type="button">New board</button>
       </div>
 
       <div class="card">
@@ -79,12 +84,6 @@
     </aside>
   </main>
 
-  <script src="src/constants.js"></script>
-  <script src="src/rules.js"></script>
-  <script src="src/board.js"></script>
-  <script src="src/game.js"></script>
-  <script src="src/ai.js"></script>
-  <script src="src/render.js"></script>
-  <script src="src/main.js"></script>
+  <script type="module" src="./dist/main.js"></script>
 </body>
 </html>

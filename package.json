@@ -1,0 +1,16 @@
+{
+  "name": "terrain-chess",
+  "version": "0.1.0",
+  "description": "Terrain Chess — a chess-inspired prototype where movement comes from terrain, not pieces.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "serve": "python3 -m http.server 8000",
+    "dev": "tsc && python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

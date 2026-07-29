@@ -107,6 +107,27 @@ html, body {
 .disc--black { background: #1b1b22; border: 2px solid #f4f4f6; }
 .note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
 
+.segmented {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.seg {
+  flex: 1 1 0;
+  padding: 8px 10px;
+  border: none;
+  background: #fff;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.seg + .seg { border-left: 1px solid var(--line); }
+.seg--on { background: var(--accent); color: #fff; }
+
 .row {
   display: flex; align-items: center; justify-content: space-between;
   gap: 10px; margin-bottom: 9px; font-size: 14px;
