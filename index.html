@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terrain Chess — prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="board-area">
+      <h1 class="title">Terrain&nbsp;Chess <span class="subtitle">prototype</span></h1>
+      <canvas id="board" width="600" height="600" aria-label="Terrain Chess board"></canvas>
+      <p id="status" class="status">Loading…</p>
+      <p id="detail" class="detail"></p>
+      <p id="stats" class="stats"></p>
+    </section>
+
+    <aside class="panel">
+      <div class="card">
+        <h2>Pieces left</h2>
+        <div class="counts">
+          <div class="count count--white"><span class="disc disc--white"></span><span id="whiteCount">0</span> White</div>
+          <div class="count count--black"><span class="disc disc--black"></span><span id="blackCount">0</span> Black</div>
+        </div>
+        <p class="note">Capture <em>all</em> enemy pieces to win. There is no king, no check.</p>
+      </div>
+
+      <div class="card">
+        <h2>Setup</h2>
+        <label class="row">
+          <span>White</span>
+          <select id="whiteCtrl">
+            <option value="human" selected>Human</option>
+            <option value="ai">AI</option>
+          </select>
+        </label>
+        <label class="row">
+          <span>Black</span>
+          <select id="blackCtrl">
+            <option value="human">Human</option>
+            <option value="ai" selected>AI</option>
+          </select>
+        </label>
+        <label class="row">
+          <span>AI speed</span>
+          <select id="speed">
+            <option value="150">Fast</option>
+            <option value="450" selected>Normal</option>
+            <option value="900">Slow</option>
+          </select>
+        </label>
+        <label class="row row--check">
+          <input type="checkbox" id="symmetric" checked />
+          <span>Symmetric terrain</span>
+        </label>
+        <label class="row">
+          <span>Seed</span>
+          <input type="text" id="seed" inputmode="numeric" placeholder="random" />
+        </label>
+        <button id="newGame" class="btn">New board</button>
+      </div>
+
+      <div class="card">
+        <h2>Terrain</h2>
+        <div id="legend" class="legend"></div>
+      </div>
+
+      <div class="card help">
+        <h2>How to play</h2>
+        <ul>
+          <li>A piece moves by the terrain it <strong>stands on</strong> — the destination's terrain matters next turn.</li>
+          <li><span class="dot dot--green"></span> green = legal move, <span class="ring ring--red"></span> red = capture.</li>
+          <li>Sliding terrain shows movement <strong>rays</strong>; knights show jump targets.</li>
+          <li>Click any square to <strong>inspect</strong> its terrain pattern (ignores pieces).</li>
+          <li>Right-click or <kbd>Esc</kbd> to clear.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="src/constants.js"></script>
+  <script src="src/rules.js"></script>
+  <script src="src/board.js"></script>
+  <script src="src/game.js"></script>
+  <script src="src/ai.js"></script>
+  <script src="src/render.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>

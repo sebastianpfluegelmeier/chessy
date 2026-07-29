@@ -1,0 +1,175 @@
+:root {
+  --bg: #f3f1ec;
+  --ink: #23222a;
+  --muted: #6a6875;
+  --card: #ffffff;
+  --line: #e2ddd3;
+  --accent: #b5732e;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.board-area { flex: 0 0 auto; }
+
+.title {
+  margin: 0 0 12px;
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+#board {
+  display: block;
+  width: 600px;
+  height: 600px;
+  max-width: 88vw;
+  max-height: 88vw;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.status {
+  margin: 16px 0 4px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.status--over { color: var(--accent); }
+
+.detail {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 14px;
+  min-height: 20px;
+}
+.stats {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel {
+  flex: 1 1 280px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.counts { display: flex; gap: 18px; font-weight: 600; font-size: 16px; }
+.count { display: flex; align-items: center; gap: 7px; }
+.disc {
+  width: 16px; height: 16px; border-radius: 50%; display: inline-block;
+}
+.disc--white { background: #fafafa; border: 2px solid #1b1b22; }
+.disc--black { background: #1b1b22; border: 2px solid #f4f4f6; }
+.note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+
+.row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 9px; font-size: 14px;
+}
+.row:last-child { margin-bottom: 0; }
+.row--check { justify-content: flex-start; gap: 8px; }
+.row select, .row input[type="text"] {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+.row input[type="text"] { width: 110px; text-align: right; font-variant-numeric: tabular-nums; }
+
+.btn {
+  margin-top: 12px;
+  width: 100%;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: #a3651f; }
+.btn:active { transform: translateY(1px); }
+
+.legend { display: flex; flex-direction: column; gap: 6px; }
+.legend-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.legend-swatch {
+  width: 30px; height: 30px; border-radius: 7px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 19px; color: rgba(20,20,30,0.75);
+  border: 1px solid rgba(0,0,0,0.08);
+  flex: 0 0 auto;
+}
+.legend-label { flex: 1 1 auto; font-weight: 600; }
+.legend-val { color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+
+.help ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: #3c3b45; }
+.help li { margin-bottom: 6px; }
+.help kbd {
+  background: #efece5; border: 1px solid var(--line); border-radius: 4px;
+  padding: 0 5px; font-size: 12px;
+}
+.dot {
+  display: inline-block; width: 11px; height: 11px; border-radius: 50%;
+  vertical-align: middle;
+}
+.dot--green { background: rgba(56,178,92,0.92); border: 1px solid rgba(20,110,50,0.9); }
+.ring {
+  display: inline-block; width: 12px; height: 12px; border-radius: 50%;
+  vertical-align: middle;
+}
+.ring--red { border: 2.5px solid rgba(214,66,66,0.95); }
+
+@media (max-width: 720px) {
+  .app { gap: 18px; }
+  .title { font-size: 22px; }
+}
